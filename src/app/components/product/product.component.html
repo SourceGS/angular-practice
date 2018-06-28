@@ -1,0 +1,28 @@
+
+<table>
+  <tr>
+      <td><p [style.font-size.px] = 'fontsize'>{{hellotext}}</p></td>
+      <td><p [style.font-weight] = "isBold ? 'Bold' : 'normal'" [innerHtml] = 'product.amount'></p></td>
+    <td><p [ngStyle]='getStyles()'>      {{product.name}}  </p></td>
+    <td><p  [ngClass]="getClasses()">      {{product.id}}     </p></td>
+  </tr>
+</table>
+
+<label>Angular two way binding using both property binding and event binding. Start typin in the below text box</label>
+<div>
+    <input type="text" [value] = 'product.name' (input) = 'product.name = $event.target.value'/>
+</div>
+
+
+
+<label>Angular two way binding using ngModel.</label>
+<div>
+    <input type="text" [(ngModel)] = 'product.name'/>  
+    <!-- This is called banana in a box syntax for ngModel two way binding -->
+</div>
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+/*Install Node Js using installer from Node.JS */
+npm -v
+node -v
+npm install -g @angular/cli
+ng new angular-practice
+ng serve -o
+  
+
+
+
+
+
+/*Git Commands */
+git init
+git add README.md
+git add .
+git commit -m "first commit"
+git remote add origin https://github.com/SourceGS/angular-practice.git
+git push -u origin master
+
+

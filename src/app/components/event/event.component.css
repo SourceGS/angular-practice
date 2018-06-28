@@ -1,0 +1,23 @@
+table{
+
+border: 1px solid chocolate;
+
+}
+
+td
+{
+    border: 1px solid blue;
+    border-collapse: collapse;
+}
+
+.bolditem{
+font-weight: bold;
+}
+
+.redcolor{
+    color: red;
+}
+
+.greencolor{
+    color: green;
+}
