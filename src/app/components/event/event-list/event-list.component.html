@@ -1,5 +1,5 @@
 <br>
-<font color="green"> /* Note: This is an example to use angular *ngFor structural direcitve. The Person Name column uses a pipe to append event type to name */ </font>
+<font color="green"> /* Note: Below is an example to use angular *ngFor structural direcitve. The Person Name column uses a pipe to append event type to name */ </font>
 <br>
 <br>
 <button (click) ="onclick()">Refresh List</button>
@@ -37,3 +37,13 @@
   </tbody>
 
 </table>
+
+<br>
+
+<br>
+<font color="green"> /* Nested Component: Below is an example of using a component with in a component, and using @input variables to pass input to child component */ </font>
+<br>
+<br>
+
+<label>Filter the results by person</label>
+<app-event-list-filter [person1Count]="getPerson1Count()" [person2Count]="getPerson2Count()" [person3Count]="getPerson3Count()" ></app-event-list-filter>

@@ -7,6 +7,7 @@ import { ProductComponent } from './components/product/product.component';
 import { EventComponent } from './components/event/event.component';
 import { EventListComponent } from './components/event/event-list/event-list.component';
 import { PersonNamePipe } from './pipes/person-name.pipe';
+import { EventListFilterComponent } from './components/event/event-list/event-list-filter/event-list-filter.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PersonNamePipe } from './pipes/person-name.pipe';
     ProductComponent,
     EventComponent,
     EventListComponent,
-    PersonNamePipe
+    PersonNamePipe,
+    EventListFilterComponent
   ],
   imports: [
     BrowserModule, FormsModule
