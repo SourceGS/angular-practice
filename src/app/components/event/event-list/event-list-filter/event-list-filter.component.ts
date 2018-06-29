@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-event-list-filter',
@@ -14,5 +14,17 @@ export class EventListFilterComponent   {
   person3Count:number;
 
 
-  constructor() { }
+   private radioButtonValue: string = 'Jane Doe';
+
+
+  @Output()
+  radioBtnListValueChanged: EventEmitter<string> = new EventEmitter<string>();
+
+
+  onRadiobuttonListValueChanged() : void
+  {
+    // alert(this.radioButtonValue);
+      this.radioBtnListValueChanged.emit(this.radioButtonValue);
+  }
+
 }

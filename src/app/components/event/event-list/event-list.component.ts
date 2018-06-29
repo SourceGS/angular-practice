@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class EventListComponent {
 
+  selectedPersonName = 'Jane Doe';
   events: any[];
   constructor() {
       this.events = [{
@@ -76,6 +77,12 @@ export class EventListComponent {
   getPerson3Count(): number
   {
     return this.events.filter(x => x.PersonName === 'Kate Simons').length;
+  }
+
+
+  onRadioValueChanged(radioBtnValue:string)
+  {
+    this.selectedPersonName = radioBtnValue;
   }
 }
 

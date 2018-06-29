@@ -19,18 +19,23 @@
       </tr>
  </thead>
   <tbody>
-    <tr *ngFor="let event of events;trackBy:trackByPipelienId;let i= index; let isEven = even; let isOdd = odd; let isFirst = first; let isLast = last;">
-        <td>{{event.id}}</td> 
-          <td>{{event.EventType | uppercase}}</td>    <!-- using pipes to transfprm data to uppsercase, similarly we can use currecny and date pipes as well -->
-          <td>{{event.PersonName | PersonNamePipe:event.EventType }}</td> <!-- this uses custom person name pipe. this pipe take event type parameter, and returns name joined by event type-->
-          <td>{{event.EventDate}}</td>
-          <td>{{event.isImportant}}</td>
-          <td>{{i}}</td>
-          <td>{{isEven}}</td>
-          <td>{{isOdd}}</td>
-          <td>{{isFirst}}</td>
-          <td>{{isLast}}</td>
-     </tr>
+   <ng-container *ngFor="let event of events;trackBy:trackByPipelienId;let i= index; let isEven = even; let isOdd = odd; let isFirst = first; let isLast = last;">
+      <tr *ngIf= "selectedPersonName == event.PersonName" >
+          <td>{{event.id}}</td> 
+            <td>{{event.EventType | uppercase}}</td>    <!-- using pipes to transfprm data to uppsercase, similarly we can use currecny and date pipes as well -->
+            <td>{{event.PersonName | PersonNamePipe:event.EventType }}</td> <!-- this uses custom person name pipe. this pipe take event type parameter, and returns name joined by event type-->
+            <td>{{event.EventDate}}</td>
+            <td>{{event.isImportant}}</td>
+            <td>{{i}}</td>
+            <td>{{isEven}}</td>
+            <td>{{isOdd}}</td>
+            <td>{{isFirst}}</td>
+            <td>{{isLast}}</td>
+       </tr>
+
+   </ng-container>
+    
+   
      <tr *ngIf= "!events || events.length ==0">
        <td colspan="2">No events to display </td>
      </tr>
@@ -46,4 +51,4 @@
 <br>
 
 <label>Filter the results by person</label>
-<app-event-list-filter [person1Count]="getPerson1Count()" [person2Count]="getPerson2Count()" [person3Count]="getPerson3Count()" ></app-event-list-filter>
+<app-event-list-filter [person1Count]="getPerson1Count()" [person2Count]="getPerson2Count()" [person3Count]="getPerson3Count()" (radioBtnListValueChanged) = "onRadioValueChanged($event)" ></app-event-list-filter>
