@@ -1,0 +1,56 @@
+<br>
+<font color="green"> /* Note: Below is an example to use angular *ngFor structural direcitve. The Person Name column uses a pipe to append event type to name */ </font>
+<br>
+<br>
+<button (click) ="onclick()">Refresh List</button>
+<table>
+ <thead>
+    <tr>
+        <th>Id</th>
+        <th>Event Type</th>
+        <th>Person Name</th>
+        <th>Event Date</th>
+        <th>Is Important</th>
+        <th>index</th>
+        <th>Even</th>
+        <th>Odd</th>
+        <th>First</th>
+        <th>Last</th>
+      </tr>
+ </thead>
+  <tbody>
+   <ng-container *ngFor="let event of events;trackBy:trackByPipelienId;let i= index; let isEven = even; let isOdd = odd; let isFirst = first; let isLast = last;">
+      <tr *ngIf= "selectedPersonName == event.PersonName" >
+          <td>{{event.id}}</td> 
+            <td>{{event.EventType | uppercase}}</td>    <!-- using pipes to transfprm data to uppsercase, similarly we can use currecny and date pipes as well -->
+            <td>{{event.PersonName | PersonNamePipe:event.EventType }}</td> <!-- this uses custom person name pipe. this pipe take event type parameter, and returns name joined by event type-->
+            <td>{{event.EventDate}}</td>
+            <td>{{event.isImportant}}</td>
+            <td>{{i}}</td>
+            <td>{{isEven}}</td>
+            <td>{{isOdd}}</td>
+            <td>{{isFirst}}</td>
+            <td>{{isLast}}</td>
+       </tr>
+
+   </ng-container>
+    
+   
+     <tr *ngIf= "!events || events.length ==0">
+       <td colspan="2">No events to display </td>
+     </tr>
+  </tbody>
+
+</table>
+
+<br>
+
+<br>
+<font color="green"> /* Nested Component: Below is an example of using a component with in a component, and using @input variables to pass input to child component */ </font>
+<br>
+<br>
+
+<!-- We are binding person counts and also the name of the radio button, so that the filter can be used multiple times with out radio butt
+name collision-->
+<label>Filter the results by person</label>
+<app-reminder-list-filter  [radioBtnListName] ='hello' [person1Count]="getPerson1Count()" [person2Count]="getPerson2Count()" [person3Count]="getPerson3Count()" (radioBtnListValueChanged) = "onRadioValueChanged($event)" ></app-reminder-list-filter>

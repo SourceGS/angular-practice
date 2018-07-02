@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-event-list',
-  templateUrl: './event-list.component.html',
-  styleUrls: ['./event-list.component.css']
+  selector: 'app-reminder-list',
+  templateUrl: './reminder-list.component.html',
+  styleUrls: ['./reminder-list.component.css']
 })
-export class EventListComponent {
+export class ReminderListComponent {
 
   selectedPersonName = 'Jane Doe';
   events: any[];

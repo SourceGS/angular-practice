@@ -1,0 +1,19 @@
+table{
+  color: #369;
+  font-size: large;
+  border-collapse: collapse;
+   border: 1px splid #456;
+}
+
+td{
+    border: 1px solid #456;
+    padding: 5px;
+}
+    
+
+th {
+
+    border: 1px solid #456;
+    padding: 15px;
+    background-color: aquamarine;
+}

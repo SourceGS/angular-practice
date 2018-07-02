@@ -6,17 +6,23 @@ import { AppComponent } from './app.component';
 import { ProductComponent } from './components/product/product.component';
 import { EventComponent } from './components/event/event.component';
 import { EventListComponent } from './components/event/event-list/event-list.component';
-import { PersonNamePipe } from './pipes/person-name.pipe';
 import { EventListFilterComponent } from './components/event/event-list/event-list-filter/event-list-filter.component';
+import { PersonNamePipe } from './pipes/person-name.pipe';
 
+import { ReminderComponent } from './components/reminder/reminder.component';
+import { ReminderListComponent } from './components/reminder/reminder-list/reminder-list.component';
+import { ReminderListFilterComponent } from './components/reminder/reminder-list/reminder-list-filter/reminder-list-filter.component';
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
     EventComponent,
     EventListComponent,
+    EventListFilterComponent,
     PersonNamePipe,
-    EventListFilterComponent
+    ReminderComponent,
+    ReminderListComponent,
+    ReminderListFilterComponent,
   ],
   imports: [
     BrowserModule, FormsModule

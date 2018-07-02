@@ -1,0 +1,48 @@
+<!-- the below html binding examples include interpolation, prperty binding, attribute binding, class binding, conditional class binding, and ngClass binding -->
+<table *ngIf='showEventlog'>
+    <tr>
+        <td [attr.colspan]= 'titleColSpan'>{{tableTitle}}</td> 
+         <!-- this way of binding to attributes like [attr.colspan] is called attribute binding -->
+    </tr>
+    <tr>
+        <td>Pipeline</td>
+        <td>{{Pipeline}}</td>
+         <!-- this way of binding within {{ }} is called interpolation -->
+    </tr>
+    <tr>
+        <td>Desk</td>
+        <td [innerHtml]= 'Desk'></td>
+               <!-- this way of binding is called property binding -->
+    </tr>
+    <tr>
+        <td class='{{boldClass}}'> Controller</td>
+          <!-- this is binding to a class by interpolation {{}}, remember boldClass is not a classname its a property from eventComponent -->
+        <td>{{Controller}}</td>
+    </tr>
+    <tr>
+        <td>Event Type</td>
+        <td [class] = 'boldClass'>{{EventType}}</td>
+         <!-- this is property binding again, remember boldClass is not a classname its a property from eventComponent -->
+    </tr>
+    <tr>
+        <td [class.redcolor] = 'isRedColor' >Event Origin</td>
+        <!-- this is caled class binding. class is binding to 'redcolor' class, using the property isRedColor -->
+        <td [class.redcolor] = '!isRedColor'>{{EventOrigin}}</td>
+        <!--this will negate the property isRedColor, and based on that negation redcolor may or may not apply -->
+    </tr>
+      <tr>
+        <td class='greencolor bolditem' >Device Type</td>
+         <!-- this is just direclty applying greencolor andbolditem classed on td -->
+        <td  class='greencolor bolditem' [class] = 'redFontClass' >{{DeviceType}}</td> 
+        <!-- though it has greencolor class applied, the greencolor class will get removed because of class  binding to redFontClass property -->
+    </tr>
+    <tr>
+        <td [class.redcolor] = 'isRedColor' [class.bolditem] = 'isBold' >Device</td>
+        <!-- here both classes are aplied based on condition -->
+
+        <td [ngClass] = 'getClasses()' >{{Device}}</td>
+        <!-- if we have more conditional classes to beapplied, the use ngClass  -->
+    </tr>
+</table>
+<br>
+<button type="button" (click)="onclick()">{{showEventlog ? 'Hide' : 'Show' }} Event log</button>
