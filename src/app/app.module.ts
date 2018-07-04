@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // this is needed for NgModel directive
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { ProductComponent } from './components/product/product.component';
@@ -12,6 +13,7 @@ import { PersonNamePipe } from './pipes/person-name.pipe';
 import { ReminderComponent } from './components/reminder/reminder.component';
 import { ReminderListComponent } from './components/reminder/reminder-list/reminder-list.component';
 import { ReminderListFilterComponent } from './components/reminder/reminder-list/reminder-list-filter/reminder-list-filter.component';
+import {  ReminderService } from './services/ReminderService';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,7 @@ import { ReminderListFilterComponent } from './components/reminder/reminder-list
   imports: [
     BrowserModule, FormsModule
   ],
-  providers: [],
+  providers: [HttpModule, ReminderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
